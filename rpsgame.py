@@ -1,11 +1,13 @@
+import random
+
 
 print('------------------------')
 print('  Rock Paper Scissors v1')
 print('------------------------')
 
-player_1 = input("Enter player 1's name: ")
+player_1 = "You" # input("Enter player 1's name: ")
 player_1 = player_1.title().strip()
-player_2 = input("Enter player 2's name: ")
+player_2 = "Borg" # input("Enter player 2's name: ")
 player_2 = player_2.title().strip()
 
 rolls = ["rock","paper","scissors"]
@@ -14,7 +16,7 @@ roll1 = input(f'{player_1}, what is your roll? [rock, paper, scissors]: ')
 roll1 = roll1.lower().strip()
 if roll1 not in rolls:
     print(f"Sorry {player_1}, {roll1} is not a valid choice.")
-roll2 = input(f'{player_2}, what is your roll? [rock, paper, scissors]: ')
+roll2 = random.choice(rolls) # input(f'{player_2}, what is your roll? [rock, paper, scissors]: ')
 roll2 = roll2.lower().strip()
 if roll2 not in rolls:
     print(f"Sorry {player_2}, {roll2} is not a valid play.")
