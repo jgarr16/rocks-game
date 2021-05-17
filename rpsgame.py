@@ -21,21 +21,36 @@ def show_header():
 
 def play_game(player_1, player_2):
     """docstring"""
+    rounds = 3
+    wins_p1 = 0
+    wins_p2 = 0
+
     rolls = ["rock", "paper", "scissors"]
 
-    roll1 = get_roll(player_1, rolls)
-    roll2 = random.choice(rolls)
+    while wins_p1 < rounds and wins_p2 < rounds:
+        roll1 = get_roll(player_1, rolls)
+        roll2 = random.choice(rolls)
 
-    losplay, winner, winplay = check_for_winning_throw(player_1, player_2, roll1, roll2, rolls)
+        losplay, winner, winplay = check_for_winning_throw(player_1, player_2, roll1, roll2, rolls)
 
-    if winner is None:
-        print(f"Nobody won, the play was a tie.")
-    elif winner == "foul1":
-        print(f"{player_1}'s roll was invalid.")
-    elif winner == "foul2":
-        print(f"{player_2}'s roll was invalid.")
-    else:
-        print(f"{winplay.title()} beats {losplay}; {winner} wins the play!")
+        if winner is None:
+            print(f"Nobody won, the play was a tie.")
+        elif winner == "foul1":
+            print(f"{player_1}'s roll was invalid.")
+        elif winner == "foul2":
+            print(f"{player_2}'s roll was invalid.")
+        else:
+            if winner == player_1:
+                wins_p1 += 1
+            if winner == player_2:
+                wins_p2 += 1
+            print(f"{winplay.title()} beats {losplay}; {winner} wins the play!")
+
+        if wins_p1 >= rounds:
+            print(f'{player_1} wins the game!')
+        if wins_p2 >= rounds:
+            print(f'{player_2} wins the game!')
+
 
 
 def check_for_winning_throw(player_1, player_2, roll1, roll2, rolls):
