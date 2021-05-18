@@ -5,22 +5,24 @@ winner = None
 
 
 def main():
-    """docstring"""
+    """Contains the run instructions for all the modules of the Rock, Paper, Scissors game.
+    show_headers() & play_game()
+    """
     show_header()
     player = "John"
-    ai = "Borg"
+    ai = "Mac"
     play_game(player, ai)
 
 
 def show_header():
-    """docstring"""
+    """Displays the asci-art header for the game."""
     print('------------------------')
     print('  Rock Paper Scissors v1')
     print('------------------------')
 
 
 def play_game(player_1, player_2):
-    """docstring"""
+    """Keeps count of the statistics and does the reporting for the game."""
     rounds = 3
     wins_p1 = 0
     wins_p2 = 0
@@ -44,7 +46,7 @@ def play_game(player_1, player_2):
                 wins_p1 += 1
             if winner == player_2:
                 wins_p2 += 1
-            print(f"{winplay.title()} beats {losplay}; {winner} wins the play!")
+            # print(f"{winplay.title()} beats {losplay}; {winner} wins the play!")
             print(f'Score is {player_1}: {wins_p1} and {player_2}: {wins_p2}')
 
     overall_winner = None
