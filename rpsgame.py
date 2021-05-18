@@ -36,7 +36,7 @@ def play_game(player_1, player_2):
         losplay, winner, winplay = check_for_winning_throw(player_1, player_2, roll1, roll2, rolls)
 
         if winner is None:
-            print(f"Nobody won, the play was a tie.")
+            print(f"Tie.")
         elif winner == "foul1":
             print(f"{player_1}'s roll was invalid.")
         elif winner == "foul2":
@@ -46,8 +46,9 @@ def play_game(player_1, player_2):
                 wins_p1 += 1
             if winner == player_2:
                 wins_p2 += 1
-            # print(f"{winplay.title()} beats {losplay}; {winner} wins the play!")
+            print(f"{winplay.title()} beats {losplay}; {winner} wins the play!")
             print(f'Score is {player_1}: {wins_p1} and {player_2}: {wins_p2}')
+            print()
 
     overall_winner = None
     if wins_p1 >= rounds:
@@ -57,7 +58,6 @@ def play_game(player_1, player_2):
 
     print(f'{overall_winner} wins the game!')
     print()
-
 
 
 def check_for_winning_throw(player_1, player_2, roll1, roll2, rolls):
