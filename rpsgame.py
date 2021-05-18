@@ -45,11 +45,16 @@ def play_game(player_1, player_2):
             if winner == player_2:
                 wins_p2 += 1
             print(f"{winplay.title()} beats {losplay}; {winner} wins the play!")
+            print(f'Score is {player_1}: {wins_p1} and {player_2}: {wins_p2}')
 
-        if wins_p1 >= rounds:
-            print(f'{player_1} wins the game!')
-        if wins_p2 >= rounds:
-            print(f'{player_2} wins the game!')
+    overall_winner = None
+    if wins_p1 >= rounds:
+        overall_winner = player_1
+    if wins_p2 >= rounds:
+        overall_winner = player_2
+
+    print(f'{overall_winner} wins the game!')
+    print()
 
 
 
